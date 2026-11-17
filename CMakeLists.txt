@@ -11,6 +11,8 @@ endif()
 
 project ("NesoraFuru")
 
+add_subdirectory(lib/json)
+
 # ソースをこのプロジェクトの実行可能ファイルに追加します。
 add_executable (NesoraFuru "src/NesoraFuru.cpp" "src/NesoraFuru.h" "src/main.cpp" "src/NesoraWave.h" "src/FujisakiModel.hpp")
 
@@ -19,3 +21,5 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
 endif()
 
 # TODO: テストを追加し、必要な場合は、ターゲットをインストールします。
+
+target_link_libraries(NesoraFuru PRIVATE nlohmann_json::nlohmann_json)

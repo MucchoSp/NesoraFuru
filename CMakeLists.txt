@@ -12,7 +12,7 @@ endif()
 project ("NesoraFuru")
 
 # ソースをこのプロジェクトの実行可能ファイルに追加します。
-add_executable (NesoraFuru "src/NesoraFuru.cpp" "src/NesoraFuru.h" "src/main.cpp" "src/NesoraWave.h")
+add_executable (NesoraFuru "src/NesoraFuru.cpp" "src/NesoraFuru.h" "src/main.cpp" "src/NesoraWave.h" "src/FujisakiModel.hpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET NesoraFuru PROPERTY CXX_STANDARD 20)

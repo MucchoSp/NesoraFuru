@@ -1,7 +1,4 @@
-﻿// Im going to create a new Nesora Furu!!!
-//
-
-#include "NesoraFuru.h"
+﻿#include "NesoraFuru.h"
 
 using namespace NesoraFuru;
 
@@ -34,7 +31,7 @@ NesoraSynthesizer::NesoraSynthesizer() {
 	phase_buffer.resize(number_of_multiples);
 }
 
-std::vector<double> NesoraSynthesizer::Synthesize(std::vector<double> pitch, std::vector<double> amplitude, std::vector<NesoraFormants> formants) {
+std::vector<double> NesoraSynthesizer::Synthesize(std::vector<double> pitch, std::vector<double> amplitude, std::vector<NesoraFormants> formants, std::vector<double> fricative) {
 	std::vector<double> out;
 
 	size_t size = std::min({ pitch.size(), amplitude.size(), formants.size() });
@@ -49,7 +46,7 @@ std::vector<double> NesoraSynthesizer::Synthesize(std::vector<double> pitch, std
 			out[i] += std::sin(phase_buffer[j]) * multiples[j].amplitude;
 		}
 
-		out[i] *= amplitude[i];
+		out[i] = out[i] * amplitude[i] * (1.0 - fricative[i]) + ((double)rand() / (double)RAND_MAX) * fricative[i];
 	}
 
 	return out;

@@ -1,0 +1,78 @@
+#include "NesoraFuru.h"
+
+using namespace NesoraFuru;
+
+void NesoraFuruVoice::LoadVoice(std::string filepath) {
+    std::ifstream stream(filepath);
+
+    if (!stream.is_open()) {
+        std::cout << "ファイルを開くのに失敗しちゃったよ" << std::endl;
+        return;
+    }
+
+    if (!nlohmann::json::accept(stream, true)) {
+        std::cout << "jsonのフォーマットが不正で読み込めなかったよ" << std::endl;
+        return;
+    }
+
+    stream.seekg(0, std::ios::beg);
+
+	nlohmann::json json = nlohmann::json::parse(stream);
+
+    if (!json.contains("name")) {
+        std::cout << "nameがないよ" << std::endl;
+        return;
+    }
+    if (!json.contains("version")) {
+        std::cout << "versionがないよ" << std::endl;
+        return;
+    }
+    if (!json.contains("f0")) {
+        std::cout << "f0がないよ" << std::endl;
+        return;
+    }
+    if (!json.contains("formants")) {
+        std::cout << "formantsがないよ" << std::endl;
+        return;
+    }
+
+    data.name = json.at("name").get<std::string>();
+    data.version = json.at("version").get<std::string>();
+    data.f0 = json.at("f0").get<double>();
+    data.formants = json.at("formants").get<std::vector<FormantParameter>>();
+
+    std::cout << "name:" << data.name << std::endl << "version:" << data.version << std::endl << "f0:" << data.f0 << std::endl;
+    std::cout << "formants" << std::endl;
+    for (auto& i : data.formants) {
+        std::cout << "  (" << i.frequency << ", " << i.intensity << ", " << i.width << ")" << std::endl;
+    }
+    
+}
+
+void NesoraFuruVoice::SetNesoraFuru() {
+
+}
+
+/*
+std::ifstream stream("test.json");
+
+if (!stream.is_open())
+    throw new std::exception("Failed open file.");
+
+if (!json::accept(stream))
+    throw new std::exception("jsonのフォーマットが不正");
+
+// json::acceptがフォーマットチェック時にpositionを進めてしまうので、先頭に戻す
+stream.seekg(0, std::ios::beg);
+
+json j = json::parse(stream);
+std::cout << j.dump() << std::endl;
+auto result = j.get<Data>();
+
+std::cout << result.Key << std::endl;
+std::cout << result.Value << std::endl;
+std::cout << result.IsTest << std::endl;
+std::cout << result.ObjData.Key << std::endl;
+std::cout << result.ObjList[0].Key << std::endl;
+std::cout << result.ObjList[1].Key << std::endl;
+*/

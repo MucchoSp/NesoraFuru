@@ -5,6 +5,9 @@
 #include <algorithm>
 #include <cmath>
 
+#ifndef NESORA_WAVE
+#define NESORA_WAVE
+
 // WAVヘッダー構造体（44バイト）
 #pragma pack(push, 1)
 struct WavHeader {
@@ -30,7 +33,7 @@ struct WavHeader {
 #pragma pack(pop)
 
 // wavファイル出力関数
-bool writeWavFile(const std::string& filename, const std::vector<double>& audioData, uint32_t sampleRate = 44100) {
+inline bool writeWavFile(const std::string& filename, const std::vector<double>& audioData, uint32_t sampleRate = 44100) {
     std::ofstream file(filename, std::ios::binary);
     if (!file) {
         std::cerr << "ファイルを開けませんでした: " << filename << std::endl;
@@ -66,3 +69,5 @@ bool writeWavFile(const std::string& filename, const std::vector<double>& audioD
 
     return true;
 }
+
+#endif // NESORA_WAVE

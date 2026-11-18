@@ -14,10 +14,14 @@ project ("NesoraFuru")
 add_subdirectory(lib/json)
 
 # ソースをこのプロジェクトの実行可能ファイルに追加します。
-add_executable (NesoraFuru "src/NesoraFuru.cpp" "src/NesoraFuru.h" "src/main.cpp" "src/NesoraWave.h" "src/FujisakiModel.hpp")
+add_executable (NesoraFuru "src/NesoraFuru.cpp" "src/NesoraFuru.h" "src/main.cpp" "src/NesoraWave.h" "src/FujisakiModel.hpp" "src/NesoraVoice.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET NesoraFuru PROPERTY CXX_STANDARD 20)
+endif()
+
+if (MSVC)
+  target_compile_options(NesoraFuru PRIVATE /utf-8)
 endif()
 
 # TODO: テストを追加し、必要な場合は、ターゲットをインストールします。

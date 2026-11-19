@@ -13,21 +13,13 @@ namespace NesoraFuru {
 		}
 
 		// ガウス分布を使ったフォルマント計算機
-		for (auto& i : out) {
-			for (auto& formant : formants) {
-				i.amplitude += std::pow(10.0, formant.intensity * std::exp(-pow2((i.frequency - formant.frequency) / formant.width)) / 10.0);
-			}
-		}
-		for (auto& i : out) {
-			i.amplitude = (i.amplitude / (double)formants.size() - 1.0) * 8.0;
-		}
-
 		for (auto& formant : formants) {
-			std::cout << "  (" << formant.frequency << ", " << formant.intensity << ", " << formant.width << ")" << std::endl;
 			for (auto& i : out) {
-				std::cout << "(" << i.frequency << ", " << i.amplitude << "), ";
+				i.amplitude += formant.intensity * std::exp(-pow2((i.frequency - formant.frequency) / formant.width));
 			}
-			std::cout << std::endl;
+		}
+		for (auto& i : out) {
+			i.amplitude = std::pow(10.0, 4.5 * (i.amplitude - 1.0));
 		}
 
 		return out;
@@ -53,7 +45,7 @@ namespace NesoraFuru {
 			std::vector<SinWaveParameter> multiples = formants[i].Calculate(pitch[i], number_of_multiples);
 
 			for (size_t j = 0;j < number_of_multiples;j++) {
-				phase_buffer[j] += (samplingFrequency / multiples[j].frequency) * PI;
+				phase_buffer[j] += (multiples[j].frequency / samplingFrequency) * 2.0 * PI;
 				out[i] += std::sin(phase_buffer[j]) * multiples[j].amplitude;
 			}
 
@@ -69,10 +61,10 @@ namespace NesoraFuru {
 	std::vector<double> NesoraFuru::Synthesize(std::string script) {
 		std::vector<double> pitch, amplitude, fricative;
 		std::vector<NesoraFormants> formants;
-		pitch.resize(1, voice.GetData().f0);
-		amplitude.resize(48000, 1.0);
+		pitch.resize(48000, voice.GetData().f0);
+		amplitude.resize(48000, 0.2);
 		fricative.resize(48000, 0.0);
-		formants.resize(48000, voice.GetData().formants);
+		formants.resize(48000, voice.GetData().formants[script]);
 		return synthesizer.Synthesize(pitch, amplitude, formants, fricative);
 	}
 

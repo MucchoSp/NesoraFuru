@@ -39,12 +39,15 @@ void NesoraFuruVoice::LoadVoice(std::string filepath) {
     data.name = json.at("name").get<std::string>();
     data.version = json.at("version").get<std::string>();
     data.f0 = json.at("f0").get<double>();
-    data.formants = json.at("formants").get<std::vector<FormantParameter>>();
+    data.formants = json.at("formants").get<std::map<std::string, std::vector<FormantParameter>>>();
 
     std::cout << "name:" << data.name << std::endl << "version:" << data.version << std::endl << "f0:" << data.f0 << std::endl;
     std::cout << "formants" << std::endl;
-    for (auto& i : data.formants) {
-        std::cout << "  (" << i.frequency << ", " << i.intensity << ", " << i.width << ")" << std::endl;
+    for (auto& phoneme : data.formants) {
+        std::cout << phoneme.first << " :" << std::endl;
+        for (int i = 0;i < 4;i++) {
+            std::cout << "  (" << phoneme.second[i].frequency << ", " << phoneme.second[i].intensity << ", " << phoneme.second[i].width << ")" << std::endl;
+        }
     }
     
 }

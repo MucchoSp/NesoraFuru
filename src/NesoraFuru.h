@@ -120,7 +120,7 @@ namespace NesoraFuru {
 
 		std::vector<double> phase_buffer;
 
-		size_t number_of_multiples = 60;
+		size_t number_of_multiples = 80;
 		double samplingFrequency = 48000.0;
 
 	};
@@ -137,8 +137,7 @@ namespace NesoraFuru {
 		std::string name;
 		std::string version;
 		double f0;
-		std::vector<FormantParameter> formants;
-
+		std::map<std::string, std::vector<FormantParameter>> formants;
 	};
 
 	class NesoraFuruVoice {

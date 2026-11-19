@@ -16,5 +16,8 @@ int main() {
 
 	NesoraFuru::NesoraFuru furu;
 	furu.LoadVoice("../../../NesoraFuru.json");
-	writeWavFile("FuruOut.wav", furu.Synthesize(""), 48000);
+	// writeWavFile("FuruOutA.wav", furu.Synthesize("a"), 48000);
+	// writeWavFile("FuruOutI.wav", furu.Synthesize("i"), 48000);
+	// writeWavFile("FuruOutU.wav", furu.Synthesize("u"), 48000);
+	writeWavFile("FuruOutE.wav", furu.Synthesize("e"), 48000);
 }

@@ -2,174 +2,216 @@
     "name":"Nesora Furu",
     "version":"0-4-4.0",
     "f0":261.63,
-    "formants":{
-        "a":[
-            {
-                "frequency":1300,
-                "intensity":1.00,
-                "width":1300
-            },
-            {
-                "frequency":4250,
-                "intensity":0.91,
-                "width":1300
-            },
-            {
-                "frequency":6800,
-                "intensity":0.63,
-                "width":1300
-            },
-            {
-                "frequency":8500,
-                "intensity":0.39,
-                "width":600
-            },
-            {
-                "frequency":10500,
-                "intensity":0.32,
-                "width":1300
-            },
-            {
-                "frequency":12300,
-                "intensity":0.32,
-                "width":600
-            },
-            {
-                "frequency":13700,
-                "intensity":0.44,
-                "width":1700
-            },
-            {
-                "frequency":17600,
-                "intensity":0.10,
-                "width":1500
-            }
-        ],
-        "i":[
-            {
-                "frequency":600,
-                "intensity":0.91,
-                "width":1300
-            },
-            {
-                "frequency":4480,
-                "intensity":1.00,
-                "width":1300
-            },
-            {
-                "frequency":6800,
-                "intensity":0.63,
-                "width":1300
-            },
-            {
-                "frequency":8500,
-                "intensity":0.39,
-                "width":600
-            },
-            {
-                "frequency":10500,
-                "intensity":0.32,
-                "width":1300
-            },
-            {
-                "frequency":12300,
-                "intensity":0.32,
-                "width":600
-            },
-            {
-                "frequency":13700,
-                "intensity":0.44,
-                "width":1700
-            },
-            {
-                "frequency":17600,
-                "intensity":0.10,
-                "width":1500
-            }
-        ],
-        "u":[
-            {
-                "frequency":800,
-                "intensity":1.00,
-                "width":1300
-            },
-            {
-                "frequency":4350,
-                "intensity":0.86,
-                "width":1300
-            },
-            {
-                "frequency":6800,
-                "intensity":0.63,
-                "width":1300
-            },
-            {
-                "frequency":8500,
-                "intensity":0.39,
-                "width":600
-            },
-            {
-                "frequency":10500,
-                "intensity":0.32,
-                "width":1300
-            },
-            {
-                "frequency":12300,
-                "intensity":0.32,
-                "width":600
-            },
-            {
-                "frequency":13700,
-                "intensity":0.44,
-                "width":1700
-            },
-            {
-                "frequency":17600,
-                "intensity":0.10,
-                "width":1500
-            }
-        ],
-        "e":[
-            {
-                "frequency":1000,
-                "intensity":0.95,
-                "width":1300
-            },
-            {
-                "frequency":4450,
-                "intensity":0.98,
-                "width":1300
-            },
-            {
-                "frequency":6800,
-                "intensity":0.63,
-                "width":1300
-            },
-            {
-                "frequency":8500,
-                "intensity":0.39,
-                "width":600
-            },
-            {
-                "frequency":10500,
-                "intensity":0.32,
-                "width":1300
-            },
-            {
-                "frequency":12300,
-                "intensity":0.32,
-                "width":600
-            },
-            {
-                "frequency":13700,
-                "intensity":0.44,
-                "width":1700
-            },
-            {
-                "frequency":17600,
-                "intensity":0.10,
-                "width":1500
-            }
-        ]
-    }
+  "formants": {
+    "a": [
+      {
+        "frequency": 1300,
+        "intensity": 1.00,
+        "width": 1300
+      },
+      {
+        "frequency": 4250,
+        "intensity": 0.91,
+        "width": 1300
+      },
+      {
+        "frequency": 6800,
+        "intensity": 0.63,
+        "width": 1300
+      },
+      {
+        "frequency": 8500,
+        "intensity": 0.39,
+        "width": 600
+      },
+      {
+        "frequency": 10500,
+        "intensity": 0.32,
+        "width": 1300
+      },
+      {
+        "frequency": 12300,
+        "intensity": 0.32,
+        "width": 600
+      },
+      {
+        "frequency": 13700,
+        "intensity": 0.44,
+        "width": 1700
+      },
+      {
+        "frequency": 17600,
+        "intensity": 0.10,
+        "width": 1500
+      }
+    ],
+    "i": [
+      {
+        "frequency": 600,
+        "intensity": 0.91,
+        "width": 1300
+      },
+      {
+        "frequency": 4480,
+        "intensity": 1.00,
+        "width": 1300
+      },
+      {
+        "frequency": 6800,
+        "intensity": 0.63,
+        "width": 1300
+      },
+      {
+        "frequency": 8500,
+        "intensity": 0.39,
+        "width": 600
+      },
+      {
+        "frequency": 10500,
+        "intensity": 0.32,
+        "width": 1300
+      },
+      {
+        "frequency": 12300,
+        "intensity": 0.32,
+        "width": 600
+      },
+      {
+        "frequency": 13700,
+        "intensity": 0.44,
+        "width": 1700
+      },
+      {
+        "frequency": 17600,
+        "intensity": 0.10,
+        "width": 1500
+      }
+    ],
+    "u": [
+      {
+        "frequency": 800,
+        "intensity": 1.00,
+        "width": 1300
+      },
+      {
+        "frequency": 4350,
+        "intensity": 0.86,
+        "width": 1300
+      },
+      {
+        "frequency": 6800,
+        "intensity": 0.63,
+        "width": 1300
+      },
+      {
+        "frequency": 8500,
+        "intensity": 0.39,
+        "width": 600
+      },
+      {
+        "frequency": 10500,
+        "intensity": 0.32,
+        "width": 1300
+      },
+      {
+        "frequency": 12300,
+        "intensity": 0.32,
+        "width": 600
+      },
+      {
+        "frequency": 13700,
+        "intensity": 0.44,
+        "width": 1700
+      },
+      {
+        "frequency": 17600,
+        "intensity": 0.10,
+        "width": 1500
+      }
+    ],
+    "e": [
+      {
+        "frequency": 1000,
+        "intensity": 0.90,
+        "width": 1300
+      },
+      {
+        "frequency": 4450,
+        "intensity": 1.00,
+        "width": 1300
+      },
+      {
+        "frequency": 6800,
+        "intensity": 0.63,
+        "width": 1300
+      },
+      {
+        "frequency": 8500,
+        "intensity": 0.39,
+        "width": 600
+      },
+      {
+        "frequency": 10500,
+        "intensity": 0.32,
+        "width": 1300
+      },
+      {
+        "frequency": 12300,
+        "intensity": 0.32,
+        "width": 600
+      },
+      {
+        "frequency": 13700,
+        "intensity": 0.44,
+        "width": 1700
+      },
+      {
+        "frequency": 17600,
+        "intensity": 0.10,
+        "width": 1500
+      }
+    ],
+    "o": [
+      {
+        "frequency": 800,
+        "intensity": 1.00,
+        "width": 1300
+      },
+      {
+        "frequency": 4050,
+        "intensity": 0.86,
+        "width": 1300
+      },
+      {
+        "frequency": 6800,
+        "intensity": 0.63,
+        "width": 1300
+      },
+      {
+        "frequency": 8500,
+        "intensity": 0.39,
+        "width": 600
+      },
+      {
+        "frequency": 10500,
+        "intensity": 0.32,
+        "width": 1300
+      },
+      {
+        "frequency": 12300,
+        "intensity": 0.32,
+        "width": 600
+      },
+      {
+        "frequency": 13700,
+        "intensity": 0.44,
+        "width": 1700
+      },
+      {
+        "frequency": 17600,
+        "intensity": 0.10,
+        "width": 1500
+      }
+    ]
+  }
 }

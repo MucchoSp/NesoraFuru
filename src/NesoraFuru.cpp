@@ -61,10 +61,11 @@ namespace NesoraFuru {
 	std::vector<double> NesoraFuru::Synthesize(std::string script) {
 		std::vector<double> pitch, amplitude, fricative;
 		std::vector<NesoraFormants> formants;
-		pitch.resize(48000, voice.GetData().f0);
-		amplitude.resize(48000, 0.2);
-		fricative.resize(48000, 0.0);
-		formants.resize(48000, voice.GetData().formants[script]);
+		int len = 12000;
+		pitch.resize(len, voice.GetData().f0);
+		amplitude.resize(len, 0.2);
+		fricative.resize(len, 0.0);
+		formants.resize(len, voice.GetData().formants[script]);
 		return synthesizer.Synthesize(pitch, amplitude, formants, fricative);
 	}
 

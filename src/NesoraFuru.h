@@ -6,7 +6,9 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <memory>
 #include <vector>
+#include <string>
 
 #include <nlohmann/json.hpp>
 
@@ -131,6 +133,43 @@ namespace NesoraFuru {
 
 
 
+	struct NesoraSegment {
+		std::string text;
+		size_t begin_frame, end_frame;
+	};
+
+	struct NesoraAccentPhrase {
+		int nucleus;
+		bool starts_breath_group;
+		std::vector<NesoraSegment> moras;
+	};
+
+	struct NesoraProsodyData {
+		double frame_seconds;
+		std::vector<NesoraSegment> phones;
+		std::vector<NesoraAccentPhrase> phrases;
+		std::vector<double> f0;
+	};
+
+	// OpenJTalkとのやり取り
+	class NesoraAnalyzer {
+	public:
+
+		NesoraAnalyzer(const std::string& dictionaly, const std::string& voice);
+		~NesoraAnalyzer();
+
+		NesoraProsodyData Analyze(const std::string& script, double speed = 1.0);
+
+	private:
+
+		struct State;
+		std::unique_ptr<State> state_;
+
+	};
+
+
+
+
 
 
 	struct NesoraFuruVoiceData {
@@ -140,6 +179,7 @@ namespace NesoraFuru {
 		std::map<std::string, std::vector<FormantParameter>> formants;
 	};
 
+	// 声
 	class NesoraFuruVoice {
 	public:
 
@@ -183,6 +223,7 @@ namespace NesoraFuru {
 		std::string script;
 		NesoraFuruVoice voice;
 		NesoraSynthesizer synthesizer;
+		//NesoraAnalyzer analyzer;
 
 	};
 

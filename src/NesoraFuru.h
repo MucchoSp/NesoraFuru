@@ -146,6 +146,7 @@ namespace NesoraFuru {
 
 	struct NesoraProsodyData {
 		double frame_seconds;
+		size_t frame_size;
 		std::vector<NesoraSegment> phones;
 		std::vector<NesoraAccentPhrase> phrases;
 		std::vector<double> f0;
@@ -194,6 +195,9 @@ namespace NesoraFuru {
 		}
 
 
+		std::vector<NesoraFormants> GenerateFromants(std::vector<NesoraSegment> segments, size_t frame_size);
+
+
 	private:
 
 		NesoraFuruVoiceData data;
@@ -207,7 +211,8 @@ namespace NesoraFuru {
 	class NesoraFuru {
 	public:
 
-		NesoraFuru() {};
+		NesoraFuru() : analyzer("D:\\open_jtalk_dic_utf_8-1.11", "D:\\MMDAgent_Example-1.8\\Voice\\mei\\mei_normal.htsvoice") {}
+		NesoraFuru(const std::string& dictionaly, const std::string& voice) : analyzer(dictionaly, voice) {}
 
 		// 日本語の文章を入力して合成をする
 		std::vector<double> Synthesize(std::string script);
@@ -223,7 +228,9 @@ namespace NesoraFuru {
 		std::string script;
 		NesoraFuruVoice voice;
 		NesoraSynthesizer synthesizer;
-		//NesoraAnalyzer analyzer;
+		NesoraAnalyzer analyzer;
+
+		double samplingFrequency = 48000.0;
 
 	};
 

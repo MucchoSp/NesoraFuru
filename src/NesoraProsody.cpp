@@ -67,9 +67,13 @@ namespace NesoraFuru {
         auto& s = *state_;
         s.reset_utterance();
         auto* engine = &s.engine;
+
+        //HTS_Engine_add_half_tone(engine, 1.0);
+
         NesoraProsodyData out{};
         out.frame_seconds = static_cast<double>(HTS_Engine_get_fperiod(engine))
             / HTS_Engine_get_sampling_frequency(engine);
+        out.frame_size = HTS_Engine_get_fperiod(engine);
         if (utf8.empty()) return out;
 
         // ASCII の全角化で 1 バイトが最大 3 バイトに増える。

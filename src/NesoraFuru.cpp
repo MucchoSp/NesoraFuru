@@ -32,6 +32,9 @@ namespace NesoraFuru {
 
 	NesoraSynthesizer::NesoraSynthesizer() {
 		phase_buffer.resize(number_of_multiples);
+		for (int i = 0;i < number_of_multiples;i++) {
+			phase_buffer[i] = ((double)rand() / (double)RAND_MAX) * 2.0 * PI;
+		}
 	}
 
 	std::vector<double> NesoraSynthesizer::Synthesize(std::vector<double> pitch, std::vector<double> amplitude, std::vector<NesoraFormants> formants, std::vector<double> fricative) {
@@ -58,14 +61,25 @@ namespace NesoraFuru {
 
 
 
+	// MARK: NesoraFuru
+
 	std::vector<double> NesoraFuru::Synthesize(std::string script) {
 		std::vector<double> pitch, amplitude, fricative;
 		std::vector<NesoraFormants> formants;
-		int len = 12000;
-		pitch.resize(len, voice.GetData().f0);
+
+		auto r = analyzer.Analyze(script, 1.0);
+
+		int len = r.f0.size() * r.frame_size;
+		for (size_t i = 0; i < r.f0.size(); i++) {
+			for (size_t j = 0;j < r.frame_size;j++)
+				pitch.push_back(r.f0[i]);
+		}
+		std::cout << pitch.size() << "," << len << std::endl;
 		amplitude.resize(len, 0.2);
 		fricative.resize(len, 0.0);
-		formants.resize(len, voice.GetData().formants[script]);
+
+		formants = voice.GenerateFromants(r.phones, r.frame_size);
+
 		return synthesizer.Synthesize(pitch, amplitude, formants, fricative);
 	}
 

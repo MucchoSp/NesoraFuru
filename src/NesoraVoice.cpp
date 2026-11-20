@@ -56,26 +56,34 @@ void NesoraFuruVoice::SetNesoraFuru() {
 
 }
 
-/*
-std::ifstream stream("test.json");
 
-if (!stream.is_open())
-    throw new std::exception("Failed open file.");
 
-if (!json::accept(stream))
-    throw new std::exception("jsonのフォーマットが不正");
+std::vector<NesoraFormants> NesoraFuruVoice::GenerateFromants(std::vector<NesoraSegment> segments, size_t frame_size) {
+    std::vector<NesoraFormants> formants;
 
-// json::acceptがフォーマットチェック時にpositionを進めてしまうので、先頭に戻す
-stream.seekg(0, std::ios::beg);
+    formants.resize(segments.back().end_frame * frame_size, data.formants["a"]);
+    for (const auto& p : segments) {
+        if (p.text == "a") {
+            std::fill(formants.begin() + p.begin_frame * frame_size, formants.begin() + p.end_frame * frame_size, data.formants["a"]);
+        }
+        else if (p.text == "i") {
+            std::fill(formants.begin() + p.begin_frame * frame_size, formants.begin() + p.end_frame * frame_size, data.formants["i"]);
+        }
+        else if (p.text == "u") {
+            std::fill(formants.begin() + p.begin_frame * frame_size, formants.begin() + p.end_frame * frame_size, data.formants["u"]);
+        }
+        else if (p.text == "e") {
+            std::fill(formants.begin() + p.begin_frame * frame_size, formants.begin() + p.end_frame * frame_size, data.formants["e"]);
+        }
+        else if (p.text == "o") {
+            std::fill(formants.begin() + p.begin_frame * frame_size, formants.begin() + p.end_frame * frame_size, data.formants["o"]);
+        }
+        else {
+        }
 
-json j = json::parse(stream);
-std::cout << j.dump() << std::endl;
-auto result = j.get<Data>();
 
-std::cout << result.Key << std::endl;
-std::cout << result.Value << std::endl;
-std::cout << result.IsTest << std::endl;
-std::cout << result.ObjData.Key << std::endl;
-std::cout << result.ObjList[0].Key << std::endl;
-std::cout << result.ObjList[1].Key << std::endl;
-*/
+    }
+
+    return formants;
+}
+

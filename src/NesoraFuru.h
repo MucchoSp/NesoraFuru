@@ -60,7 +60,7 @@ namespace nesora {
 			return;
 		}
 
-		p.time = j.at("time").get<double>() * 0.25;
+		p.time = j.at("time").get<double>();
 		p.v = j.at("value").get<double>();
 	}
 
@@ -74,7 +74,7 @@ namespace nesora {
 			return;
 		}
 
-		p.time = j.at("time").get<double>() * 0.25;
+		p.time = j.at("time").get<double>();
 		p.v = j.at("vector").get<std::array<double, 3>>();
 	}
 

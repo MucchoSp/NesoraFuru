@@ -98,22 +98,22 @@ void NesoraFuruVoice::LoadVoice(std::string filepath) {
 
     data.constants = json.at("consonants").get<std::map<std::string, NesoraFuruConstantData>>();
 
-    std::cout << "name:" << data.name << std::endl << "version:" << data.version << std::endl << "f0:" << data.f0 << std::endl;
-    std::cout << "formants" << std::endl;
-    for (int i = 0;i < vowel_list.size();i++) {
-        std::cout << vowel_list[i] << " :" << std::endl;
-        for (int j = 0;j < data.voice.vowelFormantCube[i].buffer.size();j++) {
-            std::cout << "  (" << data.voice.vowelFormantCube[i].buffer[j].f << ", " << data.voice.vowelFormantCube[i].buffer[j].h << ", " << data.voice.vowelFormantCube[i].buffer[j].w << ")" << std::endl;
-        }
-    }
-    std::cout << "constants" << std::endl;
-    for (const auto& cons : data.constants) {
-        std::cout << cons.first << " :" << std::endl;
-        for (int j = 0;j < cons.second.volumes.size();j++) {
-            std::cout << "  (" << cons.second.volumes[j].time << ", " << cons.second.volumes[j].v << "), ";
-        }
-        std::cout << std::endl;
-    }
+    //std::cout << "name:" << data.name << std::endl << "version:" << data.version << std::endl << "f0:" << data.f0 << std::endl;
+    //std::cout << "formants" << std::endl;
+    //for (int i = 0;i < vowel_list.size();i++) {
+    //    std::cout << vowel_list[i] << " :" << std::endl;
+    //    for (int j = 0;j < data.voice.vowelFormantCube[i].buffer.size();j++) {
+    //        std::cout << "  (" << data.voice.vowelFormantCube[i].buffer[j].f << ", " << data.voice.vowelFormantCube[i].buffer[j].h << ", " << data.voice.vowelFormantCube[i].buffer[j].w << ")" << std::endl;
+    //    }
+    //}
+    //std::cout << "constants" << std::endl;
+    //for (const auto& cons : data.constants) {
+    //    std::cout << cons.first << " :" << std::endl;
+    //    for (int j = 0;j < cons.second.volumes.size();j++) {
+    //        std::cout << "  (" << cons.second.volumes[j].time << ", " << cons.second.volumes[j].v << "), ";
+    //    }
+    //    std::cout << std::endl;
+    //}
     
 }
 

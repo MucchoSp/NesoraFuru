@@ -15,6 +15,7 @@
 #include <list>
 #include <vector>
 #include <iostream>
+#include <cmath>
 
 namespace nesora {
 
@@ -256,7 +257,7 @@ namespace nesora {
 		// float samplerate … サンプリング周波数
 		// float freq … カットオフ周波数
 		// float bw   … 帯域幅
-		const nsfloat log2_half = log(2.0f) / 2.0;
+		const nsfloat log2_half = std::log(2.0f) / 2.0;
 		nsfloat samplerate_inv = (nsfloat)1 / (nsfloat)44100;
 		nsfloat omega = 0.0f;
 		nsfloat alpha = 0.0f;
@@ -286,11 +287,11 @@ namespace nesora {
 
 		void SetParameter(nsfloat freq, nsfloat bw) {
 			omega = PI2 * freq * samplerate_inv;
-			nsfloat sinomega = sin(omega);
-			alpha = sinomega * sinh(log2_half * bw * omega / sinomega);
+			nsfloat sinomega = std::sin(omega);
+			alpha = sinomega * std::sinh(log2_half * bw * omega / sinomega);
 
 			a0 = 1.0f + alpha;
-			a1 = -2.0f * cos(omega);
+			a1 = -2.0f * std::cos(omega);
 			a2 = 1.0f - alpha;
 			b0 = alpha;
 			b1 = 0.0f;

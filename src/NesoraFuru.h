@@ -198,7 +198,7 @@ namespace nesora {
 		{
 		}
 
-		void LoadVoice(std::string filepath);
+		int LoadVoice(std::string filepath);
 
 		void SetNesoraFuru();
 
@@ -233,8 +233,8 @@ namespace nesora {
 		void SetVoice(NesoraFuruVoice nesoraFuruVocie) {
 			voice = nesoraFuruVocie;
 		}
-		void LoadVoice(std::string filepath) {
-			voice.LoadVoice(filepath);
+		int LoadVoice(std::string filepath) {
+			return voice.LoadVoice(filepath);
 		}
 
 	private:

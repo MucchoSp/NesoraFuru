@@ -3,10 +3,6 @@
 namespace nesora {
 
 
-
-
-
-
     void savePhonesAsTextGrid(const std::vector<NesoraSegment>& phones,
         const std::filesystem::path& output_path,
         double seconds_per_frame)
@@ -89,18 +85,11 @@ namespace nesora {
 
 
 
-
-
-
-
-
-
-
 	// MARK: NesoraFuru
 
 	std::vector<double> NesoraFuru::Synthesize(std::string script) {
         NesoraProsodyData prosody = analyzer.Analyze(script, 1.0);
-        savePhonesAsTextGrid(prosody.phones, "Phones.textgrid", prosody.frame_seconds);
+        //savePhonesAsTextGrid(prosody.phones, "Phones.textgrid", prosody.frame_seconds);
 		return voice.GenerateSynthesizeVector(prosody).SynthesizeFormant().MakeVoiceWave(samplingFrequency);
 	}
 

@@ -43,17 +43,17 @@ NesoraSynthesizeVector NesoraFuruConstantData::GenerateVector(double len) const 
 
 
 
-void NesoraFuruVoice::LoadVoice(std::string filepath) {
+int NesoraFuruVoice::LoadVoice(std::string filepath) {
     std::ifstream stream(filepath);
 
     if (!stream.is_open()) {
         std::cout << "ファイルを開くのに失敗しちゃったよ" << std::endl;
-        return;
+        return 1;
     }
 
     if (!nlohmann::json::accept(stream, true)) {
         std::cout << "jsonのフォーマットが不正で読み込めなかったよ" << std::endl;
-        return;
+        return 1;
     }
 
     stream.seekg(0, std::ios::beg);
@@ -62,23 +62,23 @@ void NesoraFuruVoice::LoadVoice(std::string filepath) {
 
     if (!json.contains("name")) {
         std::cout << "nameがないよ" << std::endl;
-        return;
+        return 1;
     }
     if (!json.contains("version")) {
         std::cout << "versionがないよ" << std::endl;
-        return;
+        return 1;
     }
     if (!json.contains("f0")) {
         std::cout << "f0がないよ" << std::endl;
-        return;
+        return 1;
     }
     if (!json.contains("formants")) {
         std::cout << "formantsがないよ" << std::endl;
-        return;
+        return 1;
     }
     if (!json.contains("consonants")) {
         std::cout << "consonantsがないよ" << std::endl;
-        return;
+        return 1;
     }
 
     data.name = json.at("name").get<std::string>();
@@ -115,6 +115,7 @@ void NesoraFuruVoice::LoadVoice(std::string filepath) {
     //    std::cout << std::endl;
     //}
     
+    return 0;
 }
 
 void NesoraFuruVoice::SetNesoraFuru() {

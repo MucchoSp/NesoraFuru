@@ -31,7 +31,7 @@ add_library(NesoraFuruLib SHARED
   src/NesoraProsody.cpp
   src/NesoraSynthesize.cpp
   src/NesoraVoice.cpp
-)
+  src/NesoraCAPI.cpp)
 add_library(NesoraFuru::NesoraFuru ALIAS NesoraFuruLib)
 
 set_target_properties(NesoraFuruLib PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)

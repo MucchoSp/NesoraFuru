@@ -20,7 +20,7 @@ extern "C" const char* nesora_synthesize_wav(
             return "Could not load voice parameters from JSON.";
 
         const auto samples = furu.Synthesize(text);
-        if (!writeWavFile(wav, samples, 48000))
+        if (!writeWavFile(std::filesystem::u8path(wav), samples, 48000))
             return "Could not write the WAV file.";
 
         return nullptr;  // 成功

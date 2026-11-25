@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <filesystem>
 #include <cstdint>
 #include <algorithm>
 #include <cmath>
@@ -33,7 +34,7 @@ struct WavHeader {
 #pragma pack(pop)
 
 // wavファイル出力関数
-inline bool writeWavFile(const std::string& filename, const std::vector<double>& audioData, uint32_t sampleRate = 44100) {
+inline bool writeWavFile(const std::filesystem::path& filename, const std::vector<double>& audioData, uint32_t sampleRate = 44100) {
     std::ofstream file(filename, std::ios::binary);
     if (!file) {
         std::cerr << "ファイルを開けませんでした: " << filename << std::endl;
@@ -67,7 +68,8 @@ inline bool writeWavFile(const std::string& filename, const std::vector<double>&
         file.write(reinterpret_cast<const char*>(&pcmSample), sizeof(pcmSample));
     }
 
-    return true;
+    file.close();
+    return !file.fail();
 }
 
 #endif // NESORA_WAVE

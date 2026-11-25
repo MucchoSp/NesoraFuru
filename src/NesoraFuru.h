@@ -187,6 +187,7 @@ namespace nesora {
 		NesoraVoice voice;
 		std::map<std::string, NesoraFuruConstantData> constants;
 		double f0;
+		double fricative;
 	};
 
 	// 声

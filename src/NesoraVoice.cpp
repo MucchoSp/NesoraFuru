@@ -72,6 +72,10 @@ int NesoraFuruVoice::LoadVoice(std::string filepath) {
         std::cout << "f0がないよ" << std::endl;
         return 1;
     }
+    if (!json.contains("fricative")) {
+        std::cout << "fricativeがないよ" << std::endl;
+        return 1;
+    }
     if (!json.contains("formants")) {
         std::cout << "formantsがないよ" << std::endl;
         return 1;
@@ -84,6 +88,7 @@ int NesoraFuruVoice::LoadVoice(std::string filepath) {
     data.name = json.at("name").get<std::string>();
     data.version = json.at("version").get<std::string>();
     data.f0 = json.at("f0").get<double>();
+    data.fricative = json.at("fricative").get<double>();
 
     std::array<std::string, 8> vowel_list = { "u","i","A","a","m","m","n","n" };
     for (int i = 0;i < vowel_list.size();i++) {
@@ -266,7 +271,7 @@ NesoraSynthesizeVector NesoraFuruVoice::GenerateSynthesizeVector(NesoraProsodyDa
             svec.AddFrequency(i * r.frame_size, r.f0[i]);
     }
 
-    svec.SetFricatives(GenerateFricatives(r.phones, r.frame_size, (double)r.frame_size / r.frame_seconds, 0.5));
+    svec.SetFricatives(GenerateFricatives(r.phones, r.frame_size, (double)r.frame_size / r.frame_seconds, data.fricative));
     svec.SetVolumes(GenerateVolumes(r.phones, r.frame_size, (double)r.frame_size / r.frame_seconds, 0.2));
     svec.SetVowelVectors(GenerateFromants(r.phones, r.frame_size, (double)r.frame_size / r.frame_seconds));
 

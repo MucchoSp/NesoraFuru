@@ -242,7 +242,11 @@ namespace nesora {
 			return out;
 		}
 
-		void push_back(const NesoraTimeArray<T>& ta, nsfloat addtime = GetMaxTime()) {
+		void push_back(const NesoraTimeArray<T>& ta) {
+			push_back(ta, GetMaxTime());
+		}
+
+		void push_back(const NesoraTimeArray<T>& ta, nsfloat addtime) {
 			insert(ta.GetAddedTimeList(addtime));
 		}
 	};

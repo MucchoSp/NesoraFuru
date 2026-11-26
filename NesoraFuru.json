@@ -2,6 +2,7 @@
   "name": "Nesora Furu",
   "version": "0-4-3.0",
   "f0": 261.63,
+  "fricative": 0.5,
   "formants": {
     "A": [
       {

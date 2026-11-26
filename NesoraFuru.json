@@ -259,7 +259,6 @@
 
   "consonants": {
     "k": {
-      "len": 0.15,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -292,7 +291,6 @@
       "frequencys": []
     },
     "t": {
-      "len": 0.15,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -325,7 +323,6 @@
       "frequencys": []
     },
     "p": {
-      "len": 0.15,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -359,7 +356,38 @@
     },
 
     "ts": {
-      "len": 0.15,
+      "vowelVetors": [
+        {
+          "time": 0.0,
+          "vector": [ 0.0, 1.0, 0.0 ]
+        },
+        {
+          "time": -0.01,
+          "vector": [ 0.0, 1.0, 0.0 ]
+        }
+      ],
+      "volumes": [
+        {
+          "time": 0.0,
+          "value": 0.0
+        },
+        {
+          "time": -0.0125,
+          "value": 0.0
+        },
+        {
+          "time": -0.01,
+          "value": 1.0
+        },
+        {
+          "time": -0.0075,
+          "value": 0.0
+        }
+      ],
+      "fricatives": [],
+      "frequencys": []
+    },
+    "ch": {
       "vowelVetors": [
         {
           "time": 0.0,
@@ -393,7 +421,6 @@
     },
 
     "g": {
-      "len": 0.17,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -439,7 +466,6 @@
       "frequencys": []
     },
     "d": {
-      "len": 0.17,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -485,7 +511,6 @@
       "frequencys": []
     },
     "b": {
-      "len": 0.17,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -532,7 +557,6 @@
     },
 
     "j": {
-      "len": 0.17,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -579,7 +603,6 @@
     },
 
     "s": {
-      "len": 0.2,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -617,7 +640,6 @@
       "frequencys": []
     },
     "h": {
-      "len": 0.2,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -655,7 +677,6 @@
       "frequencys": []
     },
     "sh": {
-      "len": 0.2,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -694,7 +715,6 @@
     },
 
     "y": {
-      "len": 0.2,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -719,7 +739,6 @@
       "frequencys": []
     },
     "w": {
-      "len": 0.2,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -744,7 +763,6 @@
       "frequencys": []
     },
     "n": {
-      "len": 0.2,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -769,7 +787,6 @@
       "frequencys": []
     },
     "m": {
-      "len": 0.2,
       "vowelVetors": [
         {
           "time": 0.0,
@@ -795,7 +812,6 @@
     },
 
     "r": {
-      "len": 0.2,
       "vowelVetors": [
         {
           "time": 0.0,

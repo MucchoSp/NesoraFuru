@@ -20,6 +20,7 @@ int main() {
 		nesora::NesoraFuru furu;
 		furu.LoadVoice("../../../NesoraFuru.json");
 		writeWavFile("FuruOut.wav", furu.Synthesize("例えば、こういう日本語の文章を読み上げられるようにするために形態素解析をする必要があるんだけど、自前で作るのはありえん大変なので、OpenJTalkを使ったってわけ。"), 48000);
+		writeWavFile("FuruOutATR503-4.wav", furu.Synthesize("物価の変動を考慮して、給付水準を決める必要がある。"), 48000);
 	}
 	catch (const std::exception& e) {
 		std::cerr << "エラー: " << e.what() << '\n';
